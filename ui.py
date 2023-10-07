@@ -5,8 +5,6 @@ import plotly.express as px
 from dash import dcc
 import pandas as pd
 import sqlite3
-import arrow
-from dateutil.relativedelta import relativedelta
 
 
 conn = sqlite3.connect('tonekabon.db')

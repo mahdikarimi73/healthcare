@@ -6,8 +6,6 @@ import pandas as pd
 import plotly.tools as tls
 import sqlite3
 import matplotlib.pyplot as plt
-from plotly.subplots import make_subplots
-import plotly.graph_objects as go
 
 
 conn = sqlite3.connect('tonekabon.db')
@@ -26,7 +24,7 @@ groups = plans_df["AgeGroup"].unique().tolist()
 plans = plans_df["Plan"].unique().tolist()
 # create a Dash application
 app = dash.Dash(external_stylesheets=[dbc.themes.SOLAR])
-
+server = app.server
 
 # define the options for your dropdowns
 year_options = ["1400","1401",'1402','1403','1404','1405']

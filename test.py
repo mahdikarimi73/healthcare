@@ -6,6 +6,9 @@ import pandas as pd
 import plotly.tools as tls
 import sqlite3
 import matplotlib.pyplot as plt
+from plotly.subplots import make_subplots
+import plotly.graph_objects as go
+import plotly.express as px
 
 
 conn = sqlite3.connect('tonekabon.db')
@@ -24,7 +27,9 @@ groups = plans_df["AgeGroup"].unique().tolist()
 plans = plans_df["Plan"].unique().tolist()
 # create a Dash application
 app = dash.Dash(external_stylesheets=[dbc.themes.SOLAR])
+
 server = app.server
+
 
 # define the options for your dropdowns
 year_options = ["1400","1401",'1402','1403','1404','1405']
@@ -248,12 +253,12 @@ def show_chart(n_clicks, center , home , unit, plan, group, start , end ):
 
 
     #dff = dff[(dff['Year'] >= from_year) & (dff['Year'] <= to_year)]
-    """fig = px.line(dff, x='Date', y='Progress', title='شاخص')
+    fig = px.line(dff, x='Date', y='Progress', title='شاخص')
     fig.update_layout(
         xaxis=dict(
             tickformat='%Y-%m-%d'
         )
-    )"""
+    )
     """global fig, ax
     global fig_n
     if fig_n == 1:
@@ -264,9 +269,9 @@ def show_chart(n_clicks, center , home , unit, plan, group, start , end ):
 
     fig_n += 1
     # Convert the Matplotlib chart to a Plotly figure
-    plotly_fig = tls.mpl_to_plotly(fig)
+    plotly_fig = tls.mpl_to_plotly(fig)"""
 
-    return plotly_fig"""
+    return fig
 
 # run the application
 if __name__ == '__main__':

@@ -2,5 +2,5 @@ dash
 dash_bootstrap_components
 plotly.express
 pandas
-sqlite3
+sqlite3==3.38.2
 gunicorn
